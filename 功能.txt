@@ -1,0 +1,125 @@
+功能需求
+功能类1--用户管理
+1-1用户注册/登录
+注册需要信息（在UserProfile用户表中更新）
+	用户名fullname、联系方式contact、邮箱email、地址address、权限role
+权限role包括：
+	('Visitor', 'Visitor')游客
+	('Related', 'Related Person')相关人员
+	('Officer', 'Officer')警官
+	('Cid', 'Criminal Investigator')犯罪调查员
+	('Admin', 'Administrator')管理员
+前端：要求区分不同权限的访问全能，后端不用区分
+1-2身份绑定
+更新Certification 用户认证关系表
+1-3用户日志更新
+该用户下所有与后端的互动操作都会记录在ActionLog 用户日志表中
+1-4查看当前用户详细信息
+
+功能类2--犯罪事件处理
+2-1犯罪事件列表
+基本信息：案情描述crime_description、犯罪类型main_type、主要罪犯main_criminal、主要受害者main_victim、主要武器main_weapon、发生时间time_occurred、区块block（从Block 区块信息表中找到区块名lock_name）、当前状态current_status
+前端：点击对应条目可以进一步查看犯罪事件具体细节
+
+2-2犯罪事件具体细节及案件进展
+详细信息包括
+	案情描述crime_description
+	所有犯罪类型（通过CrimeEventType表查询该事件event对应的所有犯罪类型编号type_code及对应序号order，再通过类型编号type_code搜索CrimeType犯罪类型表找到对应的类型名称type_name和类型描述type_description，并通过is_active判断该类型是否还在使用）
+	所有相关人员信息（通过CrimeEventPerson事件相关人员表搜索该event对应的所有相关人员信息，根据relation划分人员信息：'Susp'或'Suspect'为嫌疑人，'Crim'或'Criminal'为罪犯，'Vict'或'Victim'为受害人，'Eyew'或'Eyewitness'为目击者，'Witn'或'Witness'为证人，得到每个人的ID在Resident表中搜索其姓名，并返回关系及姓名）
+	所有武器（通过CrimeEventWeap 事件相关武器关系表搜索该event对应的所有武器信息weapon_detail，并对每一条在Weapon 武器类型表搜索对应的武器编号weapon_code和武器描述weapon_description）
+	位置描述location
+	经纬度latitude和longitude
+	区块block（从Block 区块信息表查找block_name和domain_description）
+	所有警官信息（通过CrimeEventPolice 事件负责警官关系表搜索对应处理警官信息）
+	报告时间time_reported
+	发生时间time_occurred
+	当前案件状态描述current_status
+	案件信息更新时间updated_at
+
+2-3犯罪事件提交
+①案情描述
+②勾选/增加犯罪类型（在CrimeType 犯罪类型表中搜索，如果没有则可以选择创建新类型添加到CrimeType中）
+③选择案件相关人员（选择人员及与案件的对应关系）
+④勾选/增加武器，并添加武器描述（在Weapon 武器类型表中搜索，如果没有则可以选择创建新武器类型添加在Weapon中）
+⑤选择区块（从Block 区块信息表中选择）
+⑥	发生时间time_occurred
+	位置描述location
+	经纬度latitude和longitude
+	当前案件状态描述current_status
+⑦自动更新报告时间time_reported及案件信息更新时间updated_at为该操作执行时间
+该页面可以选择“提交线索”
+
+功能类3--人员管理
+3-1居民列表
+居民名first_name和last_name、性别gender、职业occupation、联系方式contact、区块block（从Block 区块信息表中找到区块名lock_name）
+前端：点击对应条目可以进一步查看居民详细信息
+3-2居民具体信息
+居民名first_name和last_name、性别gender、生日birthday、职业occupation、联系方式contact、区块block（从Block 区块信息表中找到区块名lock_name和domain_description）、地址address
+
+功能类4--证据/线索管理
+4-1所有线索列表
+返回Clue 线索记录表:
+	线索编码clue_code
+	事件event对应的案情描述crime_description
+	线索类型clue_type
+	线索描述clue_description
+	提交者submitted_by对应的用户名
+	提交时间submitted_at
+	是否被选为线索chosen_as_evidence
+4-2特定案件线索列表
+同4-1但只返回特定事件event对应的所有线索
+4-3案件线索提交
+选择事件event后，设定线索类型clue_type、线索描述clue_description、是否被选为线索chosen_as_evidence，提交时自动根据事件ID生成不重复线索编码clue_code，并更新提交者submitted_by和提交时间submitted_at
+
+功能类5--案件进展管理
+5-1特定事件的案件进展
+在CaseProgress中找到对应event的所有项，按时间倒序排序，包括进展编码progress_code，时间time_progress、状态status、备注说明notes
+5-2更新案件进展
+①选择案件event，设置状态status和备注status
+②根据案件id自动生成唯一进展编码progress_code（一个案件对应多个进展），自动更新时间time_progress为当前时间
+
+功能类6--搜索
+1. 犯罪事件搜索
+GET /api/crime-events/?search=关键词
+搜索字段：
+- crime_description (犯罪描述)
+- block__block_name (街区名称)
+- main_type__type_name (犯罪类型名称)
+2.居民搜索
+GET /api/residents/?search=关键词
+搜索字段：
+- first_name (名)
+- last_name (姓)
+- occupation (职业)
+- block__block_name (所在街区)
+3.线索搜索
+GET /api/clues/?search=关键词
+搜索字段：
+- clue_description (线索描述)
+- clue_type (线索类型)
+- event__crime_description (关联案件描述)
+
+特定案件的线索搜索：
+GET /api/clues/{event_id}/clues_for_event/?search=关键词
+搜索字段：
+- clue_description (线索描述)
+- clue_type (线索类型)
+4.案件进展搜索
+GET /api/case-progress/{event_id}/?search=关键词
+搜索字段：
+- notes (进展备注)
+- status (进展状态)
+所有搜索接口都支持：
+不区分大小写搜索
+模糊匹配
+返回分页数据
+需要认证（除了登录注册接口外）
+返回格式示例：
+{
+    "count": 总数量,
+    "results": [
+        {
+            // 具体数据字段
+        }
+    ]
+}

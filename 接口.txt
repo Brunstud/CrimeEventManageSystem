@@ -1,0 +1,421 @@
+功能类1 - 用户管理
+1-1 用户注册/登录
+接口1：用户注册
+
+请求方式：POST
+
+请求路径：/api/register/
+
+请求参数：
+
+json
+Copy code
+{
+  "fullname": "John Doe",
+  "contact": "1234567890",
+  "email": "john.doe@example.com",
+  "address": "123 Main St",
+  "role": "Officer",
+  "password": "password123"
+}
+响应：
+
+json
+Copy code
+{
+  "id": 1,
+  "fullname": "John Doe",
+  "contact": "1234567890",
+  "email": "john.doe@example.com",
+  "address": "123 Main St",
+  "role": "Officer"
+}
+接口2：用户登录
+
+请求方式：POST
+
+请求路径：/api/login/
+
+请求参数：
+
+json
+Copy code
+{
+  "email": "john.doe@example.com",
+  "password": "password123"
+}
+响应：
+
+json
+Copy code
+{
+  "token": "<JWT_TOKEN>",
+  "user": {
+    "fullname": "John Doe",
+    "contact": "1234567890",
+    "email": "john.doe@example.com",
+    "address": "123 Main St",
+    "role": "Officer"
+  }
+}
+1-2 身份绑定
+接口3：身份绑定
+
+请求方式：POST
+
+请求路径：/api/bind-identity/
+
+请求参数：
+
+json
+Copy code
+{
+  "is_police": true,
+  "person_id": 123,
+  "officer_id": 1
+}
+响应：
+
+json
+Copy code
+{
+  "success": true,
+  "message": "Identity bound successfully"
+}
+1-3 用户日志更新
+接口4：记录用户操作日志
+
+请求方式：POST（此接口自动调用，无需前端显式调用）
+
+请求路径：/api/log/
+
+请求参数：
+
+json
+Copy code
+{
+  "user_id": 1,
+  "action": "User logged in"
+}
+响应：
+
+json
+Copy code
+{
+  "success": true,
+  "message": "Action logged successfully"
+}
+1-4 查看当前用户详细信息
+接口5：查看当前用户详细信息
+
+请求方式：GET
+
+请求路径：/api/profile/
+
+请求头：
+
+makefile
+Copy code
+Authorization: Bearer <JWT_TOKEN>
+响应：
+
+json
+Copy code
+{
+  "fullname": "John Doe",
+  "contact": "1234567890",
+  "email": "john.doe@example.com",
+  "address": "123 Main St",
+  "role": "Officer"
+}
+功能类2 - 犯罪事件处理
+2-1 犯罪事件列表
+接口6：获取犯罪事件列表
+
+请求方式：GET
+
+请求路径：/api/crime-events/
+
+响应：
+
+json
+Copy code
+{
+  "count": 10,
+  "results": [
+    {
+      "crime_description": "Robbery",
+      "main_type_name": "Robbery",
+      "main_criminal_name": "John Doe",
+      "main_victim_name": "Jane Smith",
+      "main_weapon_name": "Knife",
+      "time_occurred": "2024-12-15T12:30:00Z",
+      "block_name": "Downtown",
+      "current_status": "Under investigation"
+    }
+  ]
+}
+2-2 犯罪事件具体细节及案件进展
+接口7：获取犯罪事件详细信息
+
+请求方式：GET
+
+请求路径：/api/crime-events/{event_id}/
+
+响应：
+
+json
+Copy code
+{
+  "crime_description": "Robbery",
+  "types": [
+    {
+      "type_code": "1",
+      "type_name": "Robbery",
+      "type_description": "Theft using force",
+      "is_active": true
+    }
+  ],
+  "persons": {
+    "suspects": [{name:"John Doe",person_id:1}],
+    "criminals": [{name:"Jane Smith",person_id:2}],
+    "victims": [{name:"Jane Smith",person_id:3}]
+  },
+  "weapons": [
+    {
+      "weapon_code": "123",
+      "weapon_description": "Knife",
+      "weapon_detail": "A sharp blade"
+    }
+  ],
+  "location": "Downtown",
+  "latitude": 12.34,
+  "longitude": 56.78,
+  "block": {
+    "block_name": "Downtown",
+    "domain_description": "City center"
+  },
+  "officers": [
+    {
+      "name": "Officer A",
+      "rank": "Sergeant",
+      "level": "Level 1"
+	"person_id":5
+    }
+  ],
+  "time_reported": "2024-12-15T14:00:00Z",
+  "time_occurred": "2024-12-15T12:30:00Z",
+  "current_status": "Under investigation",
+  "updated_at": "2024-12-15T15:00:00Z"
+}
+2-3 犯罪事件提交
+接口8：提交犯罪事件
+
+请求方式：POST
+
+请求路径：/api/crime-events/
+
+请求参数：
+
+json
+Copy code
+{
+  "crime_description": "Robbery",
+  "types": [
+    {"type_code": "Robbery", "order": 1}
+  ],
+  "persons": [
+    {"person_id": 123, "relation": "Victim"}
+  ],
+  "weapons": [
+    {"weapon_description": "Knife", "weapon_detail": "Sharp blade"}
+  ],
+  "block": "Downtown",
+  "time_occurred": "2024-12-15T12:30:00Z",
+  "location": "Downtown",
+  "latitude": 12.34,
+  "longitude": 56.78,
+  "current_status": "Under investigation"
+}
+响应：
+
+json
+Copy code
+{
+  "success": true,
+  "message": "Crime event submitted successfully"
+}
+功能类3 - 人员管理
+3-1 居民列表
+接口9：获取居民列表
+
+请求方式：GET
+
+请求路径：/api/residents/
+
+响应：
+
+json
+Copy code
+{
+  "count": 2,
+  "results": [
+    {
+	“person_id”:1
+      "first_name": "John",
+      "last_name": "Doe",
+      "gender": "Male",
+      "occupation": "Engineer",
+      "contact": "1234567890",
+      "block": "Downtown"
+    }
+  ]
+}
+3-2 居民具体信息
+接口10：获取居民具体信息
+
+请求方式：GET
+
+请求路径：/api/residents/{resident_id}/
+
+响应：
+
+json
+Copy code
+{
+  "person_id":1
+  "first_name": "John",
+  "last_name": "Doe",
+  "gender": "Male",
+  "birthday": "1990-01-01",
+  "occupation": "Engineer",
+  "contact": "1234567890",
+  "address": "123 Main St",
+  "block": "Downtown",
+  "block_description": "City center"
+}
+功能类4 - 证据/线索管理
+4-1 所有线索列表
+接口11：获取所有线索列表
+
+请求方式：GET
+
+请求路径：/api/clues/
+
+响应：
+
+json
+Copy code
+{
+  "count": 5,
+  "results": [
+    {
+      "clue_code": "CLUE123",
+      "crime_description": "Robbery",
+      "clue_type": "Weapon",
+      "clue_description": "Knife found at the scene",
+      "submitted_by": "Officer A",
+      "submitted_at": "2024-12-15T12:30:00Z",
+      "chosen_as_evidence": true
+    }
+  ]
+}
+4-2 特定案件线索列表
+接口12：获取特定案件的所有线索
+
+请求方式：GET
+
+请求路径：/api/clues/{event_id}/
+
+响应：
+
+json
+Copy code
+{
+  "count": 3,
+  "results": [
+    {
+      "clue_code": "CLUE123",
+     "event_id":10
+      "crime_description": "Robbery",
+      "clue_type": "Weapon",
+      "clue_description": "Knife found at the scene",
+      "submitted_by": "Officer A",
+      "submitted_at": "2024-12-15T12:30:00Z",
+      "chosen_as_evidence": true
+    }
+  ]
+}
+4-3 案件线索提交
+接口13：提交案件线索
+
+请求方式：POST
+
+请求路径：/api/clues/
+
+请求参数：
+
+json
+Copy code
+{
+  "event_id": 1,
+  "clue_type": "Weapon",
+  "clue_description": "Knife found at the scene",
+  "chosen_as_evidence": true
+}
+响应：
+
+json
+Copy code
+{
+  "clue_code": "CLUE124",
+  "success": true,
+  "message": "Clue submitted successfully"
+}
+功能类5 - 案件进展管理
+5-1 特定事件的案件进展
+接口14：获取案件进展列表
+
+请求方式：GET
+
+请求路径：/api/case-progress/{event_id}/
+
+响应：
+
+json
+Copy code
+{
+  "count": 2,
+  "results": [
+    {
+      "progress_code": "PROG001",
+      "time_progress": "2024-12-15T12:30:00Z",
+      "status": "Under investigation",
+      "notes": "Investigating suspect"
+    }
+  ]
+}
+5-2 更新案件进展
+接口15：更新案件进展
+
+请求方式：POST
+
+请求路径：/api/case-progress/
+
+请求参数：
+
+json
+Copy code
+{
+  "event_id": 1,
+  "status": "Under investigation",
+  "notes": "Investigating suspect"
+}
+响应：
+
+json
+Copy code
+{
+  "success": true,
+  "message": "Case progress updated successfully"
+}

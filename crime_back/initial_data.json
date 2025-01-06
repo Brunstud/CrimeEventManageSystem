@@ -1,0 +1,1373 @@
+[
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "username": "admin",
+            "password": "pbkdf2_sha256$260000$saltexample$examplehashedpassword",
+            "is_superuser": true,
+            "is_staff": true,
+            "email": "admin@example.com"
+        }
+    },
+    {
+        "model": "crime.userprofile",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "fullname": "Admin User",
+            "contact": "1234567890",
+            "email": "admin@example.com",
+            "address": "123 Main St, Sacramento, CA",
+            "role": "Admin"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 2,
+        "fields": {
+            "username": "john_doe",
+            "password": "pbkdf2_sha256$260000$saltexample$examplehashedpassword",
+            "is_superuser": false,
+            "is_staff": false,
+            "email": "john.doe@example.com"
+        }
+    },
+    {
+        "model": "crime.userprofile",
+        "pk": 2,
+        "fields": {
+            "user": 2,
+            "fullname": "John Doe",
+            "contact": "9876543210",
+            "email": "john.doe@example.com",
+            "address": "456 Elm St, Boston, MA",
+            "role": "User"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 3,
+        "fields": {
+            "username": "jane_smith",
+            "password": "pbkdf2_sha256$260000$saltexample$examplehashedpassword",
+            "is_superuser": false,
+            "is_staff": false,
+            "email": "jane.smith@example.com"
+        }
+    },
+    {
+        "model": "crime.userprofile",
+        "pk": 3,
+        "fields": {
+            "user": 3,
+            "fullname": "Jane Smith",
+            "contact": "1122334455",
+            "email": "jane.smith@example.com",
+            "address": "789 Pine St, Seattle, WA",
+            "role": "User"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 4,
+        "fields": {
+            "username": "michael_brown",
+            "password": "pbkdf2_sha256$260000$saltexample$examplehashedpassword",
+            "is_superuser": false,
+            "is_staff": false,
+            "email": "michael.brown@example.com"
+        }
+    },
+    {
+        "model": "crime.userprofile",
+        "pk": 4,
+        "fields": {
+            "user": 4,
+            "fullname": "Michael Brown",
+            "contact": "2233445566",
+            "email": "michael.brown@example.com",
+            "address": "101 Maple St, Denver, CO",
+            "role": "User"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 5,
+        "fields": {
+            "username": "susan_lee",
+            "password": "pbkdf2_sha256$260000$saltexample$examplehashedpassword",
+            "is_superuser": false,
+            "is_staff": false,
+            "email": "susan.lee@example.com"
+        }
+    },
+    {
+        "model": "crime.userprofile",
+        "pk": 5,
+        "fields": {
+            "user": 5,
+            "fullname": "Susan Lee",
+            "contact": "5566778899",
+            "email": "susan.lee@example.com",
+            "address": "202 Oak St, Austin, TX",
+            "role": "User"
+        }
+    },
+    {
+        "model": "crime.block",
+        "pk": "Downtown",
+        "fields": {
+            "domain_description": "Downtown area of Los Angeles, CA"
+        }
+    },
+    {
+        "model": "crime.block",
+        "pk": "Uptown",
+        "fields": {
+            "domain_description": "Uptown area of Los Angeles, CA"
+        }
+    },
+    {
+        "model": "crime.block",
+        "pk": "Eastside",
+        "fields": {
+            "domain_description": "Eastside area of Los Angeles, CA"
+        }
+    },
+    {
+        "model": "crime.block",
+        "pk": "Westside",
+        "fields": {
+            "domain_description": "Westside area of Los Angeles, CA"
+        }
+    },
+    {
+        "model": "crime.block",
+        "pk": "Midtown",
+        "fields": {
+            "domain_description": "Midtown area of Los Angeles, CA"
+        }
+    },
+    {
+        "model": "crime.block",
+        "pk": "Southbay",
+        "fields": {
+            "domain_description": "Southbay area of Los Angeles, CA"
+        }
+    },
+    {
+        "model": "crime.block",
+        "pk": "North Park",
+        "fields": {
+            "domain_description": "North Park area of Los Angeles, CA"
+        }
+    },
+    {
+        "model": "crime.block",
+        "pk": "Hollywood",
+        "fields": {
+            "domain_description": "Hollywood area of Los Angeles, CA"
+        }
+    },
+    {
+        "model": "crime.block",
+        "pk": "Griffith Park",
+        "fields": {
+            "domain_description": "Griffith Park area of Los Angeles, CA"
+        }
+    },
+    {
+        "model": "crime.crimetype",
+        "pk": 1,
+        "fields": {
+            "type_name": "Property Crime",
+            "type_description": "Crimes involving theft or destruction of property",
+            "is_active": true
+        }
+    },
+    {
+        "model": "crime.crimetype",
+        "pk": 2,
+        "fields": {
+            "type_name": "Violent Crime",
+            "type_description": "Crimes involving physical harm to individuals",
+            "is_active": true
+        }
+    },
+    {
+        "model": "crime.crimetype",
+        "pk": 3,
+        "fields": {
+            "type_name": "Drug Offenses",
+            "type_description": "Crimes involving illegal substances or drug trafficking",
+            "is_active": true
+        }
+    },
+    {
+        "model": "crime.crimetype",
+        "pk": 4,
+        "fields": {
+            "type_name": "Traffic Violations",
+            "type_description": "Crimes related to driving laws and road safety",
+            "is_active": true
+        }
+    },
+    {
+        "model": "crime.crimetype",
+        "pk": 5,
+        "fields": {
+            "type_name": "Cybercrime",
+            "type_description": "Crimes involving the internet and digital platforms",
+            "is_active": true
+        }
+    },
+    {
+        "model": "crime.crimetype",
+        "pk": 6,
+        "fields": {
+            "type_name": "Hate Crimes",
+            "type_description": "Crimes motivated by prejudice or hatred towards specific groups",
+            "is_active": true
+        }
+    },
+    {
+        "model": "crime.crimetype",
+        "pk": 7,
+        "fields": {
+            "type_name": "White Collar Crime",
+            "type_description": "Non-violent crimes typically committed for financial gain",
+            "is_active": true
+        }
+    },
+    {
+        "model": "crime.crimetype",
+        "pk": 8,
+        "fields": {
+            "type_name": "Terrorism",
+            "type_description": "Crimes aimed at creating fear and disrupting society",
+            "is_active": true
+        }
+    },
+    {
+        "model": "crime.crimetype",
+        "pk": 9,
+        "fields": {
+            "type_name": "Environmental Crime",
+            "type_description": "Crimes that harm the environment or violate environmental laws",
+            "is_active": true
+        }
+    },
+    {
+        "model": "crime.crimetype",
+        "pk": 10,
+        "fields": {
+            "type_name": "Organized Crime",
+            "type_description": "Crimes conducted by criminal organizations with a hierarchy",
+            "is_active": true
+        }
+    },
+    {
+        "model": "crime.resident",
+        "pk": 1,
+        "fields": {
+            "first_name": "John",
+            "last_name": "Doe",
+            "gender": "M",
+            "birthday": "1980-05-15",
+            "occupation": "Teacher",
+            "contact": "9876543210",
+            "block": "Downtown",
+            "address": "456 Elm St, Los Angeles, CA"
+        }
+    },
+    {
+        "model": "crime.resident",
+        "pk": 2,
+        "fields": {
+            "first_name": "Jane",
+            "last_name": "Smith",
+            "gender": "F",
+            "birthday": "1990-07-20",
+            "occupation": "Nurse",
+            "contact": "1231231234",
+            "block": "Downtown",
+            "address": "789 Oak St, Los Angeles, CA"
+        }
+    },
+    {
+        "model": "crime.resident",
+        "pk": 3,
+        "fields": {
+            "first_name": "Alice",
+            "last_name": "Johnson",
+            "gender": "F",
+            "birthday": "1975-10-10",
+            "occupation": "Engineer",
+            "contact": "5555555555",
+            "block": "Uptown",
+            "address": "123 Pine St, Los Angeles, CA"
+        }
+    },
+    {
+        "model": "crime.resident",
+        "pk": 4,
+        "fields": {
+            "first_name": "Michael",
+            "last_name": "Brown",
+            "gender": "M",
+            "birthday": "1988-02-25",
+            "occupation": "Driver",
+            "contact": "6666666666",
+            "block": "Eastside",
+            "address": "101 Maple Ave, Los Angeles, CA"
+        }
+    },
+    {
+        "model": "crime.resident",
+        "pk": 5,
+        "fields": {
+            "first_name": "Linda",
+            "last_name": "Davis",
+            "gender": "F",
+            "birthday": "1993-06-13",
+            "occupation": "Waitress",
+            "contact": "7777777777",
+            "block": "Westside",
+            "address": "202 Cedar St, Los Angeles, CA"
+        }
+    },
+    {
+        "model": "crime.resident",
+        "pk": 6,
+        "fields": {
+            "first_name": "William",
+            "last_name": "Miller",
+            "gender": "M",
+            "birthday": "1992-03-22",
+            "occupation": "Plumber",
+            "contact": "8888888888",
+            "block": "Midtown",
+            "address": "303 Birch St, Los Angeles, CA"
+        }
+    },
+    {
+        "model": "crime.resident",
+        "pk": 7,
+        "fields": {
+            "first_name": "James",
+            "last_name": "Wilson",
+            "gender": "M",
+            "birthday": "1984-11-18",
+            "occupation": "Chef",
+            "contact": "9999999999",
+            "block": "Southbay",
+            "address": "404 Palm Ave, Los Angeles, CA"
+        }
+    },
+    {
+        "model": "crime.resident",
+        "pk": 8,
+        "fields": {
+            "first_name": "Emily",
+            "last_name": "Clark",
+            "gender": "F",
+            "birthday": "1995-04-10",
+            "occupation": "Journalist",
+            "contact": "1122334455",
+            "block": "Hollywood",
+            "address": "505 Birchwood Dr, Los Angeles, CA"
+        }
+    },
+    {
+        "model": "crime.resident",
+        "pk": 9,
+        "fields": {
+            "first_name": "Robert",
+            "last_name": "Martinez",
+            "gender": "M",
+            "birthday": "1990-12-30",
+            "occupation": "Artist",
+            "contact": "2233445566",
+            "block": "North Park",
+            "address": "606 Oakwood St, Los Angeles, CA"
+        }
+    },
+    {
+        "model": "crime.resident",
+        "pk": 10,
+        "fields": {
+            "first_name": "Patricia",
+            "last_name": "Garcia",
+            "gender": "F",
+            "birthday": "1985-09-17",
+            "occupation": "Lawyer",
+            "contact": "3344556677",
+            "block": "Griffith Park",
+            "address": "707 Redwood Blvd, Los Angeles, CA"
+        }
+    },
+    {
+        "model": "crime.weapon",
+        "pk": 1,
+        "fields": {
+            "weapon_description": "Handgun"
+        }
+    },
+    {
+        "model": "crime.weapon",
+        "pk": 2,
+        "fields": {
+            "weapon_description": "Knife"
+        }
+    },
+    {
+        "model": "crime.weapon",
+        "pk": 3,
+        "fields": {
+            "weapon_description": "Bat"
+        }
+    },
+    {
+        "model": "crime.weapon",
+        "pk": 4,
+        "fields": {
+            "weapon_description": "Rifle"
+        }
+    },
+    {
+        "model": "crime.weapon",
+        "pk": 5,
+        "fields": {
+            "weapon_description": "Machete"
+        }
+    },
+    {
+        "model": "crime.weapon",
+        "pk": 6,
+        "fields": {
+            "weapon_description": "Taser"
+        }
+    },
+    {
+        "model": "crime.weapon",
+        "pk": 7,
+        "fields": {
+            "weapon_description": "Crowbar"
+        }
+    },
+    {
+        "model": "crime.weapon",
+        "pk": 8,
+        "fields": {
+            "weapon_description": "Poison"
+        }
+    },
+    {
+        "model": "crime.weapon",
+        "pk": 9,
+        "fields": {
+            "weapon_description": "Stun Gun"
+        }
+    },
+    {
+        "model": "crime.weapon",
+        "pk": 10,
+        "fields": {
+            "weapon_description": "Bomb"
+        }
+    },
+    {
+        "model": "crime.police",
+        "pk": 1,
+        "fields": {
+            "person": 1,
+            "rank": "Detective",
+            "department": "Homicide"
+        }
+    },
+    {
+        "model": "crime.police",
+        "pk": 2,
+        "fields": {
+            "person": 2,
+            "rank": "Officer",
+            "department": "Traffic"
+        }
+    },
+    {
+        "model": "crime.police",
+        "pk": 3,
+        "fields": {
+            "person": 3,
+            "rank": "Lieutenant",
+            "department": "Narcotics"
+        }
+    },
+    {
+        "model": "crime.police",
+        "pk": 4,
+        "fields": {
+            "person": 4,
+            "rank": "Sergeant",
+            "department": "Cybercrime"
+        }
+    },
+    {
+        "model": "crime.police",
+        "pk": 5,
+        "fields": {
+            "person": 5,
+            "rank": "Detective",
+            "department": "Homicide"
+        }
+    },
+    {
+        "model": "crime.police",
+        "pk": 6,
+        "fields": {
+            "person": 6,
+            "rank": "Captain",
+            "department": "Special Investigations"
+        }
+    },
+    {
+        "model": "crime.police",
+        "pk": 7,
+        "fields": {
+            "person": 7,
+            "rank": "Officer",
+            "department": "Public Safety"
+        }
+    },
+    {
+        "model": "crime.police",
+        "pk": 8,
+        "fields": {
+            "person": 8,
+            "rank": "Lieutenant",
+            "department": "Counter-Terrorism"
+        }
+    },
+    {
+        "model": "crime.police",
+        "pk": 9,
+        "fields": {
+            "person": 9,
+            "rank": "Sergeant",
+            "department": "Fraud Investigation"
+        }
+    },
+    {
+        "model": "crime.police",
+        "pk": 10,
+        "fields": {
+            "person": 10,
+            "rank": "Detective",
+            "department": "Missing Persons"
+        }
+    },
+    {
+        "model": "crime.crimeevent",
+        "pk": 1,
+        "fields": {
+            "crime_description": "Burglary reported in downtown area",
+            "main_type": 1,
+            "main_criminal": 1,
+            "main_victim": 2,
+            "main_weapon": 1,
+            "time_reported": "2024-01-15T10:00:00Z",
+            "time_occurred": "2024-01-15T09:00:00Z",
+            "block": "Downtown",
+            "location": "123 Main St, Downtown Los Angeles, CA",
+            "latitude": 34.052235,
+            "longitude": -118.243683,
+            "current_status": "Open",
+            "updated_at": "2024-01-16T12:00:00Z"
+        }
+    },
+    {
+        "model": "crime.crimeevent",
+        "pk": 2,
+        "fields": {
+            "crime_description": "Mugging reported near the Uptown park",
+            "main_type": 2,
+            "main_criminal": 3,
+            "main_victim": 4,
+            "main_weapon": 2,
+            "time_reported": "2024-01-17T14:30:00Z",
+            "time_occurred": "2024-01-17T14:00:00Z",
+            "block": "Uptown",
+            "location": "Park Ave & 5th St, Los Angeles, CA",
+            "latitude": 34.062235,
+            "longitude": -118.220683,
+            "current_status": "Open",
+            "updated_at": "2024-01-17T15:00:00Z"
+        }
+    },
+    {
+        "model": "crime.crimeevent",
+        "pk": 3,
+        "fields": {
+            "crime_description": "Domestic violence reported in Eastside area",
+            "main_type": 2,
+            "main_criminal": 5,
+            "main_victim": 6,
+            "main_weapon": 3,
+            "time_reported": "2024-01-18T08:00:00Z",
+            "time_occurred": "2024-01-18T07:00:00Z",
+            "block": "Eastside",
+            "location": "456 Oak St, Los Angeles, CA",
+            "latitude": 34.072235,
+            "longitude": -118.200683,
+            "current_status": "Investigating",
+            "updated_at": "2024-01-18T08:30:00Z"
+        }
+    },
+    {
+        "model": "crime.crimeevent",
+        "pk": 4,
+        "fields": {
+            "crime_description": "Armed robbery at Westside bank",
+            "main_type": 1,
+            "main_criminal": 7,
+            "main_victim": 8,
+            "main_weapon": 4,
+            "time_reported": "2024-01-19T11:00:00Z",
+            "time_occurred": "2024-01-19T10:45:00Z",
+            "block": "Westside",
+            "location": "789 Bank St, Los Angeles, CA",
+            "latitude": 34.052235,
+            "longitude": -118.250683,
+            "current_status": "Closed",
+            "updated_at": "2024-01-19T14:00:00Z"
+        }
+    },
+    {
+        "model": "crime.crimeevent",
+        "pk": 5,
+        "fields": {
+            "crime_description": "Stabbing at Midtown nightclub",
+            "main_type": 2,
+            "main_criminal": 9,
+            "main_victim": 10,
+            "main_weapon": 5,
+            "time_reported": "2024-01-20T23:00:00Z",
+            "time_occurred": "2024-01-20T22:30:00Z",
+            "block": "Midtown",
+            "location": "101 Club St, Los Angeles, CA",
+            "latitude": 34.065235,
+            "longitude": -118.210683,
+            "current_status": "Investigating",
+            "updated_at": "2024-01-20T23:30:00Z"
+        }
+    },
+    {
+        "model": "crime.crimeevent",
+        "pk": 6,
+        "fields": {
+            "crime_description": "Gang fight reported at Southbay shopping center",
+            "main_type": 2,
+            "main_criminal": 3,
+            "main_victim": 1,
+            "main_weapon": 6,
+            "time_reported": "2024-01-21T05:00:00Z",
+            "time_occurred": "2024-01-21T04:45:00Z",
+            "block": "Southbay",
+            "location": "202 Mall Rd, Los Angeles, CA",
+            "latitude": 34.092235,
+            "longitude": -118.240683,
+            "current_status": "Open",
+            "updated_at": "2024-01-21T05:30:00Z"
+        }
+    },
+    {
+        "model": "crime.crimeevent",
+        "pk": 7,
+        "fields": {
+            "crime_description": "Cyber attack on financial institution",
+            "main_type": 5,
+            "main_criminal": 4,
+            "main_victim": 6,
+            "main_weapon": 7,
+            "time_reported": "2024-01-22T09:30:00Z",
+            "time_occurred": "2024-01-22T09:00:00Z",
+            "block": "North Park",
+            "location": "303 Network St, Los Angeles, CA",
+            "latitude": 34.070235,
+            "longitude": -118.220683,
+            "current_status": "Under investigation",
+            "updated_at": "2024-01-22T10:00:00Z"
+        }
+    },
+    {
+        "model": "crime.crimeevent",
+        "pk": 8,
+        "fields": {
+            "crime_description": "Drug trafficking arrest at Hollywood warehouse",
+            "main_type": 3,
+            "main_criminal": 5,
+            "main_victim": 3,
+            "main_weapon": 8,
+            "time_reported": "2024-01-23T13:15:00Z",
+            "time_occurred": "2024-01-23T12:30:00Z",
+            "block": "Hollywood",
+            "location": "456 Warehouse Rd, Los Angeles, CA",
+            "latitude": 34.080235,
+            "longitude": -118.270683,
+            "current_status": "Closed",
+            "updated_at": "2024-01-23T14:00:00Z"
+        }
+    },
+    {
+        "model": "crime.crimeevent",
+        "pk": 9,
+        "fields": {
+            "crime_description": "Traffic accident with fatalities on Griffith Park Ave",
+            "main_type": 4,
+            "main_criminal": 8,
+            "main_victim": 9,
+            "main_weapon": 9,
+            "time_reported": "2024-01-24T18:00:00Z",
+            "time_occurred": "2024-01-24T17:45:00Z",
+            "block": "Griffith Park",
+            "location": "101 Griffith Park Ave, Los Angeles, CA",
+            "latitude": 34.092235,
+            "longitude": -118.250683,
+            "current_status": "Closed",
+            "updated_at": "2024-01-24T18:30:00Z"
+        }
+    },
+    {
+        "model": "crime.crimeevent",
+        "pk": 10,
+        "fields": {
+            "crime_description": "Terrorist threat made against city officials",
+            "main_type": 8,
+            "main_criminal": 2,
+            "main_victim": 5,
+            "main_weapon": 10,
+            "time_reported": "2024-01-25T09:00:00Z",
+            "time_occurred": "2024-01-25T08:30:00Z",
+            "block": "Downtown",
+            "location": "City Hall, Los Angeles, CA",
+            "latitude": 34.050235,
+            "longitude": -118.250683,
+            "current_status": "Investigating",
+            "updated_at": "2024-01-25T09:30:00Z"
+        }
+    },
+    {
+        "model": "crime.caseprogress",
+        "pk": 1,
+        "fields": {
+            "event": 1,
+            "time_progress": "2024-01-16T14:00:00Z",
+            "status": "Investigation Ongoing",
+            "notes": "Police are conducting interviews with witnesses."
+        }
+    },
+    {
+        "model": "crime.caseprogress",
+        "pk": 2,
+        "fields": {
+            "event": 2,
+            "time_progress": "2024-01-17T16:00:00Z",
+            "status": "Investigation Ongoing",
+            "notes": "Evidence is being reviewed."
+        }
+    },
+    {
+        "model": "crime.caseprogress",
+        "pk": 3,
+        "fields": {
+            "event": 3,
+            "time_progress": "2024-01-18T09:30:00Z",
+            "status": "Investigation Ongoing",
+            "notes": "Police are analyzing the weapon."
+        }
+    },
+    {
+        "model": "crime.caseprogress",
+        "pk": 4,
+        "fields": {
+            "event": 4,
+            "time_progress": "2024-01-19T13:00:00Z",
+            "status": "Investigation Ongoing",
+            "notes": "Witnesses are being questioned."
+        }
+    },
+    {
+        "model": "crime.caseprogress",
+        "pk": 5,
+        "fields": {
+            "event": 5,
+            "time_progress": "2024-01-20T16:30:00Z",
+            "status": "Investigation Ongoing",
+            "notes": "A suspect is in custody."
+        }
+    },
+    {
+        "model": "crime.caseprogress",
+        "pk": 6,
+        "fields": {
+            "event": 6,
+            "time_progress": "2024-01-21T18:00:00Z",
+            "status": "Investigation Ongoing",
+            "notes": "Forensic evidence is being collected."
+        }
+    },
+    {
+        "model": "crime.caseprogress",
+        "pk": 7,
+        "fields": {
+            "event": 7,
+            "time_progress": "2024-01-22T10:30:00Z",
+            "status": "Investigation Ongoing",
+            "notes": "The suspect's alibi is being verified."
+        }
+    },
+    {
+        "model": "crime.caseprogress",
+        "pk": 8,
+        "fields": {
+            "event": 8,
+            "time_progress": "2024-01-23T12:00:00Z",
+            "status": "Investigation Ongoing",
+            "notes": "The suspect has been identified."
+        }
+    },
+    {
+        "model": "crime.caseprogress",
+        "pk": 9,
+        "fields": {
+            "event": 9,
+            "time_progress": "2024-01-24T14:00:00Z",
+            "status": "Closed",
+            "notes": "The case has been closed due to lack of evidence."
+        }
+    },
+    {
+        "model": "crime.caseprogress",
+        "pk": 10,
+        "fields": {
+            "event": 10,
+            "time_progress": "2024-01-25T15:30:00Z",
+            "status": "Investigation Ongoing",
+            "notes": "Threat assessments are being done."
+        }
+    },
+    {
+        "model": "crime.clue",
+        "pk": 2,
+        "fields": {
+            "event": 2,
+            "clue_type": "Eyewitness Testimony",
+            "clue_description": "Witness saw the suspect running away from the scene",
+            "submitted_by": 2,
+            "submitted_at": "2024-01-17T15:30:00Z",
+            "chosen_as_evidence": false
+        }
+    },
+    {
+        "model": "crime.clue",
+        "pk": 3,
+        "fields": {
+            "event": 3,
+            "clue_type": "Physical Evidence",
+            "clue_description": "Bloodstains found near the victim",
+            "submitted_by": 3,
+            "submitted_at": "2024-01-18T10:00:00Z",
+            "chosen_as_evidence": true
+        }
+    },
+    {
+        "model": "crime.clue",
+        "pk": 4,
+        "fields": {
+            "event": 4,
+            "clue_type": "Security Camera Footage",
+            "clue_description": "CCTV footage shows the suspect entering the bank",
+            "submitted_by": 4,
+            "submitted_at": "2024-01-19T12:30:00Z",
+            "chosen_as_evidence": true
+        }
+    },
+    {
+        "model": "crime.clue",
+        "pk": 5,
+        "fields": {
+            "event": 5,
+            "clue_type": "Anonymous Tip",
+            "clue_description": "A tip was received about the suspect's location",
+            "submitted_by": 5,
+            "submitted_at": "2024-01-20T09:45:00Z",
+            "chosen_as_evidence": false
+        }
+    },
+    {
+        "model": "crime.clue",
+        "pk": 6,
+        "fields": {
+            "event": 6,
+            "clue_type": "Forensic Evidence",
+            "clue_description": "DNA samples found at the crime scene",
+            "submitted_by": 2,
+            "submitted_at": "2024-01-21T14:00:00Z",
+            "chosen_as_evidence": true
+        }
+    },
+    {
+        "model": "crime.clue",
+        "pk": 7,
+        "fields": {
+            "event": 7,
+            "clue_type": "Social Media Posts",
+            "clue_description": "Suspect posted a photo on social media at the crime scene",
+            "submitted_by": 3,
+            "submitted_at": "2024-01-22T08:00:00Z",
+            "chosen_as_evidence": false
+        }
+    },
+    {
+        "model": "crime.clue",
+        "pk": 8,
+        "fields": {
+            "event": 8,
+            "clue_type": "Phone Records",
+            "clue_description": "Phone records show calls made to a known accomplice",
+            "submitted_by": 4,
+            "submitted_at": "2024-01-23T13:15:00Z",
+            "chosen_as_evidence": true
+        }
+    },
+    {
+        "model": "crime.clue",
+        "pk": 9,
+        "fields": {
+            "event": 9,
+            "clue_type": "Suspect's Confession",
+            "clue_description": "Suspect confessed to committing the crime during interrogation",
+            "submitted_by": 2,
+            "submitted_at": "2024-01-24T11:00:00Z",
+            "chosen_as_evidence": true
+        }
+    },
+    {
+        "model": "crime.clue",
+        "pk": 10,
+        "fields": {
+            "event": 10,
+            "clue_type": "Ballistics Report",
+            "clue_description": "Ballistics report links the weapon to the crime scene",
+            "submitted_by": 3,
+            "submitted_at": "2024-01-25T14:00:00Z",
+            "chosen_as_evidence": true
+        }
+    },
+    {
+        "model": "crime.weapon",
+        "pk": 2,
+        "fields": {
+            "weapon_description": "Knife"
+        }
+    },
+    {
+        "model": "crime.weapon",
+        "pk": 3,
+        "fields": {
+            "weapon_description": "Bat"
+        }
+    },
+    {
+        "model": "crime.weapon",
+        "pk": 4,
+        "fields": {
+            "weapon_description": "Baseball Bat"
+        }
+    },
+    {
+        "model": "crime.weapon",
+        "pk": 5,
+        "fields": {
+            "weapon_description": "Crowbar"
+        }
+    },
+    {
+        "model": "crime.weapon",
+        "pk": 6,
+        "fields": {
+            "weapon_description": "Machete"
+        }
+    },
+    {
+        "model": "crime.weapon",
+        "pk": 7,
+        "fields": {
+            "weapon_description": "Taser"
+        }
+    },
+    {
+        "model": "crime.weapon",
+        "pk": 8,
+        "fields": {
+            "weapon_description": "Pistol"
+        }
+    },
+    {
+        "model": "crime.weapon",
+        "pk": 9,
+        "fields": {
+            "weapon_description": "Shotgun"
+        }
+    },
+    {
+        "model": "crime.weapon",
+        "pk": 10,
+        "fields": {
+            "weapon_description": "Assault Rifle"
+        }
+    },
+    {
+        "model": "crime.crimeeventtype",
+        "pk": 1,
+        "fields": {
+            "event": 1,
+            "type_code": 1,
+            "order": 1
+        }
+    },
+    {
+        "model": "crime.crimeeventtype",
+        "pk": 2,
+        "fields": {
+            "event": 2,
+            "type_code": 2,
+            "order": 2
+        }
+    },
+    {
+        "model": "crime.crimeeventtype",
+        "pk": 3,
+        "fields": {
+            "event": 3,
+            "type_code": 3,
+            "order": 3
+        }
+    },
+    {
+        "model": "crime.crimeeventtype",
+        "pk": 4,
+        "fields": {
+            "event": 4,
+            "type_code": 4,
+            "order": 4
+        }
+    },
+    {
+        "model": "crime.crimeeventtype",
+        "pk": 5,
+        "fields": {
+            "event": 5,
+            "type_code": 5,
+            "order": 5
+        }
+    },
+    {
+        "model": "crime.crimeeventtype",
+        "pk": 6,
+        "fields": {
+            "event": 6,
+            "type_code": 6,
+            "order": 6
+        }
+    },
+    {
+        "model": "crime.crimeeventtype",
+        "pk": 7,
+        "fields": {
+            "event": 7,
+            "type_code": 7,
+            "order": 7
+        }
+    },
+    {
+        "model": "crime.crimeeventtype",
+        "pk": 8,
+        "fields": {
+            "event": 8,
+            "type_code": 8,
+            "order": 8
+        }
+    },
+    {
+        "model": "crime.crimeeventtype",
+        "pk": 9,
+        "fields": {
+            "event": 9,
+            "type_code": 9,
+            "order": 9
+        }
+    },
+    {
+        "model": "crime.crimeeventtype",
+        "pk": 10,
+        "fields": {
+            "event": 10,
+            "type_code": 10,
+            "order": 10
+        }
+    },
+    {
+        "model": "crime.crimeeventperson",
+        "pk": 3,
+        "fields": {
+            "event": 2,
+            "person": 3,
+            "relation": "Crim"
+        }
+    },
+    {
+        "model": "crime.crimeeventperson",
+        "pk": 4,
+        "fields": {
+            "event": 3,
+            "person": 4,
+            "relation": "Vict"
+        }
+    },
+    {
+        "model": "crime.crimeeventperson",
+        "pk": 5,
+        "fields": {
+            "event": 4,
+            "person": 5,
+            "relation": "Crim"
+        }
+    },
+    {
+        "model": "crime.crimeeventperson",
+        "pk": 6,
+        "fields": {
+            "event": 5,
+            "person": 6,
+            "relation": "Vict"
+        }
+    },
+    {
+        "model": "crime.crimeeventperson",
+        "pk": 7,
+        "fields": {
+            "event": 6,
+            "person": 7,
+            "relation": "Crim"
+        }
+    },
+    {
+        "model": "crime.crimeeventperson",
+        "pk": 8,
+        "fields": {
+            "event": 7,
+            "person": 8,
+            "relation": "Vict"
+        }
+    },
+    {
+        "model": "crime.crimeeventperson",
+        "pk": 9,
+        "fields": {
+            "event": 8,
+            "person": 9,
+            "relation": "Crim"
+        }
+    },
+    {
+        "model": "crime.crimeeventperson",
+        "pk": 10,
+        "fields": {
+            "event": 9,
+            "person": 10,
+            "relation": "Vict"
+        }
+    },
+    {
+        "model": "crime.crimeeventpolice",
+        "pk": 2,
+        "fields": {
+            "event": 2,
+            "officer": 2,
+            "level": "Supervisor",
+            "in_date": "2024-01-16",
+            "out_date": null
+        }
+    },
+    {
+        "model": "crime.crimeeventpolice",
+        "pk": 3,
+        "fields": {
+            "event": 3,
+            "officer": 3,
+            "level": "Leader",
+            "in_date": "2024-01-17",
+            "out_date": null
+        }
+    },
+    {
+        "model": "crime.crimeeventpolice",
+        "pk": 4,
+        "fields": {
+            "event": 4,
+            "officer": 4,
+            "level": "Leader",
+            "in_date": "2024-01-18",
+            "out_date": null
+        }
+    },
+    {
+        "model": "crime.crimeeventpolice",
+        "pk": 5,
+        "fields": {
+            "event": 5,
+            "officer": 5,
+            "level": "Member",
+            "in_date": "2024-01-19",
+            "out_date": null
+        }
+    },
+    {
+        "model": "crime.crimeeventpolice",
+        "pk": 6,
+        "fields": {
+            "event": 6,
+            "officer": 6,
+            "level": "Member",
+            "in_date": "2024-01-20",
+            "out_date": null
+        }
+    },
+    {
+        "model": "crime.crimeeventpolice",
+        "pk": 7,
+        "fields": {
+            "event": 7,
+            "officer": 7,
+            "level": "Member",
+            "in_date": "2024-01-21",
+            "out_date": null
+        }
+    },
+    {
+        "model": "crime.crimeeventpolice",
+        "pk": 8,
+        "fields": {
+            "event": 8,
+            "officer": 8,
+            "level": "Member",
+            "in_date": "2024-01-22",
+            "out_date": null
+        }
+    },
+    {
+        "model": "crime.crimeeventpolice",
+        "pk": 9,
+        "fields": {
+            "event": 9,
+            "officer": 9,
+            "level": "Supervisor",
+            "in_date": "2024-01-23",
+            "out_date": null
+        }
+    },
+    {
+        "model": "crime.crimeeventpolice",
+        "pk": 10,
+        "fields": {
+            "event": 10,
+            "officer": 10,
+            "level": "Leader",
+            "in_date": "2024-01-24",
+            "out_date": null
+        }
+    },
+    {
+        "model": "crime.crimeeventweap",
+        "pk": 2,
+        "fields": {
+            "event": 2,
+            "weapon": 2,
+            "weapon_detail": "Knife used in the attack"
+        }
+    },
+    {
+        "model": "crime.crimeeventweap",
+        "pk": 3,
+        "fields": {
+            "event": 3,
+            "weapon": 3,
+            "weapon_detail": "Baseball bat used to strike the victim"
+        }
+    },
+    {
+        "model": "crime.crimeeventweap",
+        "pk": 4,
+        "fields": {
+            "event": 4,
+            "weapon": 4,
+            "weapon_detail": "Crowbar used in the break-in"
+        }
+    },
+    {
+        "model": "crime.crimeeventweap",
+        "pk": 5,
+        "fields": {
+            "event": 5,
+            "weapon": 5,
+            "weapon_detail": "Machete found at the scene"
+        }
+    },
+    {
+        "model": "crime.crimeeventweap",
+        "pk": 6,
+        "fields": {
+            "event": 6,
+            "weapon": 6,
+            "weapon_detail": "Taser used to subdue the victim"
+        }
+    },
+    {
+        "model": "crime.crimeeventweap",
+        "pk": 7,
+        "fields": {
+            "event": 7,
+            "weapon": 7,
+            "weapon_detail": "Pistol found in suspect's possession"
+        }
+    },
+    {
+        "model": "crime.crimeeventweap",
+        "pk": 8,
+        "fields": {
+            "event": 8,
+            "weapon": 8,
+            "weapon_detail": "Shotgun used in the robbery"
+        }
+    },
+    {
+        "model": "crime.crimeeventweap",
+        "pk": 9,
+        "fields": {
+            "event": 9,
+            "weapon": 9,
+            "weapon_detail": "Assault rifle found near the crime scene"
+        }
+    },
+    {
+        "model": "crime.crimeeventweap",
+        "pk": 10,
+        "fields": {
+            "event": 10,
+            "weapon": 10,
+            "weapon_detail": "Assault rifle fired during the crime"
+        }
+    }
+]

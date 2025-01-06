@@ -1,0 +1,114 @@
+1. 搜索犯罪类型
+GET /api/search/crime-types/
+
+功能：根据关键词搜索犯罪类型
+权限：需要登录认证
+请求参数：
+  - query: string (查询关键词，选填)
+  
+响应格式：
+{
+    "results": [
+        {
+            "type_code": "TYPE001",      // 犯罪类型编码
+            "type_name": "抢劫",         // 犯罪类型名称
+            "type_description": "..."     // 犯罪类型描述
+        },
+        ...
+    ]
+}
+2. 搜索人员
+GET /api/search/persons/
+
+功能：根据关键词搜索居民信息
+权限：需要登录认证
+请求参数：
+  - query: string (可搜索姓名或身份证号)
+  
+响应格式：
+{
+    "results": [
+        {
+            "person_id": "P001",                     // 人员编号
+            "name": "张三",                          // 姓名（first_name + last_name）
+            "person_id": "110101199001011234"        // 身份证号
+        },
+        ...
+    ]
+}
+3. 搜索武器类型
+GET /api/search/weapons/
+
+功能：根据关键词搜索武器类型
+权限：需要登录认证
+请求参数：
+  - query: string (查询关键词，选填)
+  
+响应格式：
+{
+    "results": [
+        {
+            "weapon_code": "W001",           // 武器编码
+            "weapon_description": "手枪"      // 武器描述
+        },
+        ...
+    ]
+}
+4. 搜索区块信息
+GET /api/search/blocks/
+
+功能：根据关键词搜索区块信息
+权限要求：需要登录认证（IsAuthenticated）
+
+请求参数：
+  - query: string (选填)
+    搜索关键词，可匹配：
+    - 区块名称（block_name）
+    - 区块描述（domain_description）
+
+响应格式：
+{
+    "results": [
+        {
+            "block_name": "东城区-东华门街道",    // 区块名称
+            "block_description": "东城区东华门街道辖区", // 区块描述
+        },
+        ...
+    ]
+}
+
+响应状态码：
+- 200: 请求成功
+- 401: 未认证
+- 403: 无权限
+4. 添加犯罪类型
+POST /api/search/add-crime-type/
+
+功能：添加新的犯罪类型
+权限：需要登录认证
+请求体：
+{
+    "type_name": "新犯罪类型名称",
+    "type_description": "类型描述"  // 选填
+}
+
+响应格式：
+成功响应：
+{
+    "success": true,
+    "message": "添加成功",
+    "data": {
+        "type_code": "TYPE002",
+        "type_name": "新犯罪类型名称",
+        "type_description": "类型描述"
+    }
+}
+
+错误响应：
+{
+    "error": "犯罪类型名称不能为空"
+}
+或
+{
+    "error": "该犯罪类型已存在"
+}
